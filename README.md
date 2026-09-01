@@ -1,65 +1,66 @@
-# Controle por Gestos para Paint e Ajuste de Volume
+# IA Controle - Controle de Paint e Volume por Gestos
 
-Este projeto utiliza visão computacional e reconhecimento de gestos de mão para controlar duas funcionalidades principais em uma máquina Windows:
+Projeto de visão computacional que utiliza o reconhecimento de gestos de mão para o controle de duas funcionalidades no Windows:
 
-**Abrir e Fechar o Paint:** Usando o gesto de um dedo, o programa abre o Microsoft Paint. Com o gesto de quatro dedos, ele fecha o Paint.
+- **Abrir e Fechar o Paint** — o gesto de um dedo abre o Microsoft Paint; o gesto de quatro dedos o fecha.
+- **Ajustar o Volume** — o número de dedos levantados na mão direita define o volume do sistema, de 0% a 100%.
 
-**Ajustar o Volume:** Usando o número de dedos levantados na mão direita, o sistema ajusta o volume do sistema, de 0% a 100%.
+## Tecnologias Utilizadas
 
-### O projeto faz uso das seguintes bibliotecas Python:
+| Biblioteca | Finalidade |
+|------------|------------|
+| OpenCV | Captura de vídeo e processamento de imagens |
+| cvzone (HandTrackingModule) | Rastreamento das mãos e reconhecimento de gestos |
+| PyCaw | Controle do áudio do sistema |
+| psutil | Verificação se o Paint está em execução |
+| comtypes | Interface COM para o controle de volume |
 
-**OpenCV:** Para captura de vídeo e processamento de imagens.
-**PyCaw:** Para controlar o áudio do sistema.
-**cvzone:** Para o rastreamento das mãos e reconhecimento de gestos.
-**psutil:** Para verificar se o Paint está rodando.
+## Requisitos
 
-### Requisitos
+- Python 3.x
+- Webcam
+- Sistema Windows
 
-**Python 3.x**
+## Instalação
 
-**OpenCV**
+Instale as dependências:
 
-**PyCaw**
+```bash
+pip install opencv-python pycaw cvzone psutil comtypes
+```
 
-**cvzone**
+## Como Executar
 
-**psutil**
+```bash
+python IA_controle.py
+```
 
-**comtypes**
+Pressione **Q** a qualquer momento para encerrar o programa.
 
-### Para instalar as bibliotecas necessárias, execute:
-
-    pip install opencv-python pycaw cvzone psutil comtypes
-  
 ## Funcionalidades
 
-1. Gesto para Abrir o Paint
-   
-Quando o usuário levanta um dedo (por exemplo, o dedo indicador), o programa abre o Microsoft Paint, caso ele não esteja já aberto.
+### 1. Abrir o Paint
+Com um dedo levantado, o programa abre o Microsoft Paint (caso não esteja em execução).
 
-3. Gesto para Fechar o Paint
-   
-Quando o usuário levanta quatro dedos (por exemplo, todos os dedos exceto o polegar), o programa fecha o Microsoft Paint, caso ele esteja aberto.
+### 2. Fechar o Paint
+Com quatro dedos levantados, o programa encerra o Microsoft Paint (caso esteja em execução).
 
-4. Gesto para Controlar o Volume
-   
-Usando a mão direita:
+### 3. Controle de Volume (mão direita)
+O volume do sistema é ajustado de acordo com o número de dedos levantados:
 
-- 0 dedos levantados: Volume no mínimo (0%).
-  
-- 1 dedo levantado: Volume em 20%.
-  
-- 2 dedos levantados: Volume em 40%.
- 
-- 3 dedos levantados: Volume em 60%.
-  
-- 4 dedos levantados: Volume em 80%.
-  
-- 5 dedos levantados: Volume em 100%.
-  
+| Dedos levantados | Volume |
+|------------------|--------|
+| 0 | 0% |
+| 1 | 20% |
+| 2 | 40% |
+| 3 | 60% |
+| 4 | 80% |
+| 5 | 100% |
 
+## Estrutura do Projeto
 
-
-
-
-
+```
+IA_Controle/
+├── IA_controle.py   # Código principal
+└── README.md
+```
